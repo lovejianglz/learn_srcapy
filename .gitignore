@@ -1,4 +1,5 @@
 .idea
-venv\*
+# venv\*
 venv
-
+tutorial/tutorial/__pycache__/
+tutorial/tutorial/spiders/__pycache__/
