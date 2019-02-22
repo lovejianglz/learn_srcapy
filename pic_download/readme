@@ -1,0 +1,5 @@
+## pic_download
+* 从image.so.com中，下载摄影类型的图片，下载
+    1. 数据以文件形式保存，保存文件为pic.txt
+    2. 数据保存到mongodb中
+    3. 下载图片到 IMAGES_STORE 指定的目录

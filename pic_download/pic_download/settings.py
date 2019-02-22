@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for tutorial project
+# Scrapy settings for pic_download project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,17 +9,22 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'tutorial'
+BOT_NAME = 'pic_download'
 
-SPIDER_MODULES = ['tutorial.spiders']
-NEWSPIDER_MODULE = 'tutorial.spiders'
+SPIDER_MODULES = ['pic_download.spiders']
+NEWSPIDER_MODULE = 'pic_download.spiders'
 
+MONGO_URI = "localhost"
+MONGO_DB = "images360"
+
+
+IMAGES_STORE = r'D:\PycharmProjects\learn_scrapy\pic'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'tutorial (+http://www.yourdomain.com)'
+#USER_AGENT = 'pic_download (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -47,13 +52,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'tutorial.middlewares.TutorialSpiderMiddleware': 543,
+#    'pic_download.middlewares.PicDownloadSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'tutorial.middlewares.TutorialDownloaderMiddleware': 543,
+#    'pic_download.middlewares.PicDownloadDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,8 +70,10 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "tutorial.pipelines.TextPipeline":100,
-    'tutorial.pipelines.TutorialPipeline': 300,
+    'pic_download.pipelines.PicDownloadPipeline': 300,
+    'pic_download.pipelines.Save2FilePipeline': 400,
+    'pic_download.pipelines.MongoPipeline': 410,
+    'pic_download.pipelines.ImagePipeline': 390,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

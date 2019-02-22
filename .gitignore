@@ -1,5 +1,5 @@
-.idea
-# venv\*
-venv
-tutorial/tutorial/__pycache__/
-tutorial/tutorial/spiders/__pycache__/
+.idea/
+
+venv/
+*.pyc
+pic/
